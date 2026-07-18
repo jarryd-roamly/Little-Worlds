@@ -96,6 +96,29 @@ class _MatchSceneState extends State<MatchScene> {
     if (mounted) setState(_reset);
   }
 
+  void _showWhyThis(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (_) => Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(S.t('whyThis'),
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 12),
+            Text(S.t('matchSkill')),
+            const SizedBox(height: 8),
+            Text(S.t('matchApproach')),
+            const SizedBox(height: 8),
+            Text(S.t('matchHome'), style: const TextStyle(fontStyle: FontStyle.italic)),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -160,3 +183,6 @@ class _MatchSceneState extends State<MatchScene> {
           ],
         ),
       ),
+    );
+  }
+}
